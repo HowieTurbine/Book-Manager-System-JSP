@@ -16,7 +16,7 @@ div {
 	function addNewItem() {
 		var frm = document.getElementById("AddInformation");
 		frm.submit(); //Submit the form
-		confirm("Successfully Submit!");
+		window.location.assign("finish.jsp"); 
 
 	}
 </script>
