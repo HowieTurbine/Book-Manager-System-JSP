@@ -100,7 +100,7 @@ p {
 					if (odd == 0) {
 			%>
 			<tr style="background-color: #339933">
-				<td><%=tl.getName()%></td>
+				<td><%=tl.getName()%></td>  
 				<td><%=tl.getAuthor()%></td>
 				<td><%=tl.getNumber()%></td>
 				<td><%=tl.getPrice()%></td>
