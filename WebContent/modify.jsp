@@ -42,7 +42,7 @@ div {
 			</p>
 			<p>
 				<input type="button" value="OK" name="OK" onclick='modifyItem()'>
-				<input type="button" value="Cancel" name="Cancel" >
+				<input type="button" value="Cancel" name="Cancel">
 
 				<%
 					String name = request.getParameter("name");
@@ -55,10 +55,10 @@ div {
 						price1 = Double.parseDouble(request.getParameter("price"));
 					if (number != null)
 						number1 = Integer.parseInt(request.getParameter("number"));
-
-					DataBase db = new DataBase();
-					db.modifyEntity(name, author,price1,number1);
-
+					if (name != null && author != null && price != null && number != null) {
+						DataBase db = new DataBase();
+						db.modifyEntity(name, author, price1, number1);
+					}
 					//pageContext.setAttribute("name", name);
 				%>
 			</p>

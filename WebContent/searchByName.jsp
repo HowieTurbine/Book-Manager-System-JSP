@@ -35,47 +35,49 @@ div {
 			</p>
 		</form>
 
-			<p>
-				<input type="button" value="Search" name="Search" onclick='Search()'>
-				<input type="button" value="Cancel" name="Cancel">
-			</p>
-			<table border="0">
-				<tr style="background-color: #33FFCC">
-					<td>Name</td>
-					<td>Author</td>
-					<td>Number</td>
-					<td>Price</td>
-				</tr>
-				<%
-					String name = request.getParameter("name");
+		<p>
+			<input type="button" value="Search" name="Search" onclick='Search()'>
+			<input type="button" value="Cancel" name="Cancel">
+		</p>
+		<table border="0">
+			<tr style="background-color: #33FFCC">
+				<td>Name</td>
+				<td>Author</td>
+				<td>Number</td>
+				<td>Price</td>
+			</tr>
+			<%
+				String name = request.getParameter("name");
+				if (name != null) {
 					DataBase db = new DataBase();
-					List<Entity> list=db.searchByName(name);
+					List<Entity> list = db.searchByName(name);
 					int odd = 0;
 					for (Entity tl : list) {
 						if (odd == 0) {
-				%>
-				<tr style="background-color: #339933">
-					<td><%=tl.getName()%></td>
-					<td><%=tl.getAuthor()%></td>
-					<td><%=tl.getNumber()%></td>
-					<td><%=tl.getPrice()%></td>
-				</tr>
-				<%
-					odd = 1;
+			%>
+			<tr style="background-color: #339933">
+				<td><%=tl.getName()%></td>
+				<td><%=tl.getAuthor()%></td>
+				<td><%=tl.getNumber()%></td>
+				<td><%=tl.getPrice()%></td>
+			</tr>
+			<%
+				odd = 1;
 						} else if (odd == 1) {
-				%>
-				<tr style="background-color: #33FF33">
-					<td><%=tl.getName()%></td>
-					<td><%=tl.getAuthor()%></td>
-					<td><%=tl.getNumber()%></td>
-					<td><%=tl.getPrice()%></td>
-				</tr>
-				<%
-					odd = 0;
+			%>
+			<tr style="background-color: #33FF33">
+				<td><%=tl.getName()%></td>
+				<td><%=tl.getAuthor()%></td>
+				<td><%=tl.getNumber()%></td>
+				<td><%=tl.getPrice()%></td>
+			</tr>
+			<%
+				odd = 0;
 						}
 					}
-				%>
-			</table>
+				}
+			%>
+		</table>
 	</div>
 
 </body>

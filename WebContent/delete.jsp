@@ -41,11 +41,12 @@ div {
 
 				<%
 					String name = request.getParameter("name");
-					String author = request.getParameter("author");
+							String author = request.getParameter("author");
 
-
-					DataBase db = new DataBase();
-					db.deleteEntity(name, author);
+						if (name != null && author != null) {
+						DataBase db = new DataBase();
+						db.deleteEntity(name, author);
+					}
 
 					//pageContext.setAttribute("name", name);
 				%>
